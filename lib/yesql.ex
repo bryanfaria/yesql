@@ -55,6 +55,20 @@ defmodule Yesql do
 
       unless driver in drivers, do: raise(UnknownDriver, driver)
 
+      keys = Enum.map_join(param_spec, "\n", &"  * `#{&1}`")
+
+      doc = """
+      Executes the SQL query defined in `#{file_path}`.
+
+      ## Parameters
+
+      - `args`: a keyword list with the following keys:
+      #{keys}
+
+      Returns `{:ok, result}` on success or `{:error, reason}` on failure.
+      """
+
+      @doc doc
       def unquote(name)(conn, args) do
         Yesql.exec(conn, unquote(driver), unquote(sql), unquote(param_spec), args)
       end

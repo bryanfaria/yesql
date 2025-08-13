@@ -41,6 +41,9 @@ defmodule Yesql do
       driver = opts[:driver] || @yesql_private__driver || raise(NoDriver, name)
       conn = opts[:conn] || @yesql_private__conn
 
+      # Track the SQL file as an external resource so the module recompiles when it changes
+      @external_resource file_path
+
       {:ok, sql, param_spec} =
         file_path |> File.read!() |> String.replace("\r\n", "\n") |> Yesql.parse()
 

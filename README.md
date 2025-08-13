@@ -56,14 +56,12 @@ By keeping the SQL and Elixir separate you get:
 - Simplicity. This is a very small library, it is easier to understand
   and review than Ecto and similar.
 
-
 ### When Should I Not Use Yesql?
 
 When you need your SQL to work with many different kinds of
 database at once. If you want one complex query to be transparently
 translated into different dialects for MySQL, Oracle, Postgres etc.,
 then you genuinely do need an abstraction layer on top of SQL.
-
 
 ## Alternatives
 
@@ -107,7 +105,6 @@ mix deps.get
 mix test
 ```
 
-
 ## Other Languages
 
 Yesql ~~rips off~~ is inspired by [Kris Jenkins' Clojure Yesql](https://github.com/krisajenkins/yesql).
@@ -127,7 +124,6 @@ Similar libraries can be found for many languages:
 | PHP        | [YepSQL](https://github.com/LionsHead/YepSQL)      |
 | Python     | [Anosql](https://github.com/honza/anosql)          |
 | Ruby       | [yayql](https://github.com/gnarmis/yayql)          |
-
 
 ## License
 

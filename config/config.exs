@@ -5,8 +5,8 @@ case Mix.env() do
     config :yesql, ecto_repos: [YesqlTest.Repo]
 
     config :yesql, YesqlTest.Repo,
-      username: "postgres",
-      password: "postgres",
+      username: "yesql",
+      password: "yesql",
       database: "yesql_test",
       hostname: "localhost"
 

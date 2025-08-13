@@ -5,8 +5,8 @@ defmodule TestHelper do
   def new_postgrex_connection(ctx) do
     opts = [
       hostname: "localhost",
-      username: "postgres",
-      password: "postgres",
+      username: "yesql",
+      password: "yesql",
       database: "yesql_test",
       name: Module.concat(ctx.module, Postgrex)
     ]

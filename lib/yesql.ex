@@ -45,7 +45,13 @@ defmodule Yesql do
       @external_resource file_path
 
       {:ok, sql, param_spec} =
-        file_path |> File.read!() |> String.replace("\r\n", "\n") |> Yesql.parse()
+        file_path
+        |> File.read!()
+        |> String.replace("\r\n", "\n")
+        |> String.split("\n")
+        |> Enum.filter(&(not String.starts_with?(&1, "--")))
+        |> Enum.join("\n")
+        |> Yesql.parse()
 
       unless driver in drivers, do: raise(UnknownDriver, driver)
 
